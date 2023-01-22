@@ -65,7 +65,7 @@ public class KaryawanController {
     @PostMapping("/save")
     public String saveKaryawan(Karyawan karyawan, RedirectAttributes redirectAttributes) {
         try {
-            if(karyawan.getName() == null || karyawan.getNoHp() == null || karyawan.getEntryDate() == null){
+            if(karyawan.getName().length() == 0 || karyawan.getNoHp().length() == 0 || karyawan.getEntryDate() == null){
                 redirectAttributes.addFlashAttribute("message", "Data harus diisi");
                 if(karyawan.getId() != 0){
                     return "redirect:/"  + karyawan.getId();
