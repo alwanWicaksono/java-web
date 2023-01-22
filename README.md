@@ -2,7 +2,9 @@
 
 Link deploy: https://java-web-production.up.railway.app/
 
-Database postgress use "SUPABASE"
+# Java Web menggunakan framework Springboot
+
+# Database postgress use "SUPABASE"
 "Supabase is an open source Firebase alternative. Start your project with a Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, and Storage"
 
 Create Table Manual: 
