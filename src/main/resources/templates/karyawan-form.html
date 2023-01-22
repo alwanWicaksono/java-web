@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">[[${pageTitle}]]</h2>
+
+        <form th:action="@{/save}" method="post" enctype="multipart/form-data" th:object="${karyawan}">
+            <input type="hidden" th:field="*{id}" />
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="entryDate" class="col-sm-2 col-form-label">Entry Date</label>
+                <div class="col-sm-10">
+                    <input type="date" th:field="*{entryDate}" class="form-control" id="entryDate" placeholder="Entry Date">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="noHp" class="col-sm-2 col-form-label">Nomor Handphone</label>
+                <div class="col-sm-10">
+                    <input type="number" th:field="*{noHp}" class="form-control" id="noHp" placeholder="08....">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="limitReimbursement" class="col-sm-2 col-form-label">Limit Reimbursement</label>
+                <div class="col-sm-10">
+                    <input type="number" th:field="*{limitReimbursement}" class="form-control" id="limitReimbursement" placeholder="Limit Reimbursement">
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+        <p th:if="${message != null}" class="text-danger">[[${message}]]</p>
+    </div>
+</body>
+</html>

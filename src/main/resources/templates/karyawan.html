@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Java Web</title>
+</head>
+<body>
+  <div class="container pt-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <form class="" th:action="@{/}">
+        <div class="form-row d-flex align-items-end">
+          <div class="col-md-3 mb-3 mr-3">
+            <div>Nama Karyawan </div>
+            <input type="text" name="name" th:value="${name}" class="form-control" id="name" placeholder="name">
+          </div>
+          <div class="col-md-3 mb-3">
+            <div>Entry Date </div>
+            <input type="date" name="entryDate1" th:value="${entryDate1}" class="form-control" id="date1" placeholder="date">
+          </div>
+          <h3 class="my-auto" style="font-weight: normal;">-</h3>
+          <div class="col-md-3 mb-3">
+            <input type="date" name="entryDate2" th:value="${entryDate2}" class="form-control" id="date2" placeholder="date">
+          </div>
+          <button type="submit" class="btn btn-primary col-md-2 mb-3 h-50">Search</button>
+        </div>
+      </form>
+      <div>
+        <a class="mr-auto" href="/new"><button class="btn btn-primary">Add Karyawan</button></a>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Kode Karyawan</th>
+        <th scope="col">Name</th>
+        <th scope="col">Entry Date</th>
+        <th scope="col">No. Hp</th>
+        <th scope="col">Limit Reimbursement</th>
+        <th scope="col">Created At</th>
+        <th scope="col">Updated At</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="karyawan,iter : ${karyawan}">
+        <th scope="row" th:text="${iter.index + 1}"></th>
+        <td th:text="${karyawan.kodeKaryawan}"></td>
+        <td th:text="${karyawan.name}"></td>
+        <td th:text="${karyawan.entryDate}"></td>
+        <td th:text="${karyawan.noHp}"></td>
+        <td th:text="${karyawan.limitReimbursement}"></td>
+        <td th:text="${karyawan.createdAt}"></td>
+        <td th:text="${karyawan.updatedAt}"></td>
+        <td>
+          <a th:href="@{'/' + ${karyawan.id}}" title="Edit this karyawan"
+             class="fa-regular fa-pen-to-square icon-dark"></a>
+          &nbsp;
+          <a th:href="@{'/delete/' + ${karyawan.id}}" id="btnDelete"
+             title="Delete this karyawan" class="fa-regular fa-trash-can icon-dark btn-delete"></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
