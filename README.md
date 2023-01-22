@@ -1,6 +1,7 @@
 # java-web
 
 Link deploy: https://java-web-production.up.railway.app/
+but in deploy, if you add the form for the first time, there are still errors, but only for the first time and if you use mobile, the error is in the "kode karyawan"
 
 # Java Web menggunakan framework Springboot (jdbcTemplate)
 
