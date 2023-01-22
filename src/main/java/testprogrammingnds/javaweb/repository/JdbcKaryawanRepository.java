@@ -46,10 +46,10 @@ public class JdbcKaryawanRepository implements KaryawanRepository {
     }
 
     @Override
-    public List<Karyawan> findAll(String name, String entryDate1, String entryDate2) {
+    public List<Karyawan> findAll(String name, String entryDate1, String entryDate2, String noHp) {
         String query = "SELECT * from karyawan";
         if(name != null || (entryDate1 != null && entryDate2 != null)){
-            query += " WHERE (name ILIKE '%" + name + "%'";
+            query += " WHERE (name ILIKE '%" + name + "%' AND no_hp ILIKE '%" + noHp + "%'";
             if(entryDate1.length() > 0 && entryDate2.length() > 0){
                 query += " AND entry_date BETWEEN '" + entryDate1 + "' AND '"+ entryDate2 +"'";
             }

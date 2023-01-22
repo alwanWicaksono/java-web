@@ -13,17 +13,21 @@
     <div class="d-flex justify-content-between align-items-center">
       <form class="" th:action="@{/}">
         <div class="form-row d-flex align-items-end">
-          <div class="col-md-3 mb-3 mr-3">
+          <div class="col-md-2 mb-3 mr-3">
             <div>Nama Karyawan </div>
             <input type="text" name="name" th:value="${name}" class="form-control" id="name" placeholder="name">
           </div>
-          <div class="col-md-3 mb-3">
+          <div class="col-md-2 mb-3">
             <div>Entry Date </div>
             <input type="date" name="entryDate1" th:value="${entryDate1}" class="form-control" id="date1" placeholder="date">
           </div>
           <h3 class="my-auto" style="font-weight: normal;">-</h3>
-          <div class="col-md-3 mb-3">
+          <div class="col-md-2 mb-3">
             <input type="date" name="entryDate2" th:value="${entryDate2}" class="form-control" id="date2" placeholder="date">
+          </div>
+          <div class="col-md-2 mb-3">
+            <div>No. Hp</div>
+            <input type="number" name="noHp" th:value="${noHp}" class="form-control" id="noHp" placeholder="no hp">
           </div>
           <button type="submit" class="btn btn-primary col-md-2 mb-3 h-50">Search</button>
         </div>
@@ -32,6 +36,7 @@
         <a class="mr-auto" href="/new"><button class="btn btn-primary">Add Karyawan</button></a>
       </div>
     </div>
+    <p th:if="${message != null}" class="text-danger">[[${message}]]</p>
     <table class="table">
       <thead>
       <tr>

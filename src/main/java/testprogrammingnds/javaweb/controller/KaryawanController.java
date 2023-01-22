@@ -21,14 +21,18 @@ public class KaryawanController {
     @Autowired
     private KaryawanRepository karyawanRepository;
     @GetMapping("/")
-    public String getAllKaryawan(Model model, @Param("name") String name, @Param("entryDate1") String entryDate1, @Param("entryDate2") String entryDate2) {
+    public String getAllKaryawan(Model model, @Param("name") String name, @Param("entryDate1") String entryDate1, @Param("entryDate2") String entryDate2, @Param("noHp") String noHp) {
         try {
+            if(entryDate1 != null && entryDate2 != null){
+                if((entryDate1.length() == 0 && entryDate2.length() > 0 ) || (entryDate1.length() > 0 && entryDate2.length() == 0)){
+                    model.addAttribute("message", "Date range \"Entry Date\" Harus Diisi keduanya jika ingin mencari range date");
+                }
+            }
             List<Karyawan> karyawan = new ArrayList<Karyawan>();
-            karyawanRepository.findAll(name, entryDate1, entryDate2).forEach(karyawan::add);
+            karyawanRepository.findAll(name, entryDate1, entryDate2, noHp).forEach(karyawan::add);
 
             model.addAttribute("karyawan", karyawan);
         } catch (Exception e) {
-            System.out.println(e);
             model.addAttribute("message", e.getMessage());
         }
         return "karyawan";

@@ -13,7 +13,7 @@ public interface KaryawanRepository {
 
     int deleteById(Long id);
 
-    List<Karyawan> findAll(String name, String entryDate1, String entryDate2);
+    List<Karyawan> findAll(String name, String entryDate1, String entryDate2, String noHp);
 
     List<Karyawan> findBySearch(String title, String entryDate1, String entryDate2);
 }
