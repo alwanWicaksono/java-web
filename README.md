@@ -25,7 +25,7 @@ CREATE TABLE karyawan
     kode_karyawan VARCHAR(255),
     name VARCHAR(255) unique NOT NULL,
     entry_date DATE NOT NULL,
-    no_hp varchar(16),
+    no_hp varchar(255),
     limit_reimbursement INT,
     created_at timestamp(3) NOT NULL DEFAULT (CURRENT_TIMESTAMP),
     updated_at timestamp(3) NOT NULL DEFAULT (CURRENT_TIMESTAMP)
